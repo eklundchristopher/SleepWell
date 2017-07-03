@@ -38,7 +38,8 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="gEe-Vl-JZj" customClass="MenubarController" customModule="SleepWell" customModuleProvider="target">
                     <connections>
-                        <outlet property="intervalMenu" destination="htF-wl-bWc" id="ELF-F0-KSk"/>
+                        <outlet property="intervalLabel" destination="bHh-df-Se7" id="acy-je-IBm"/>
+                        <outlet property="intervalStepper" destination="mSB-18-3wR" id="lRm-rs-dmX"/>
                         <outlet property="menubar" destination="asO-AN-rWL" id="5DE-bY-1y2"/>
                         <outlet property="progressbar" destination="oWT-Rs-Itp" id="uV3-Ww-TdQ"/>
                         <outlet property="timerLabel" destination="3TT-Uo-wkQ" id="c1Q-zo-2ig"/>
@@ -54,63 +55,13 @@
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="Lvu-RV-Xt9"/>
-                        <menuItem title="Set Interval" id="Rcs-YE-6FR">
+                        <menuItem title="Interval" id="eHk-Ko-JLE">
                             <modifierMask key="keyEquivalentModifierMask"/>
-                            <menu key="submenu" title="Set Interval" id="htF-wl-bWc">
-                                <items>
-                                    <menuItem title="15 minutes" id="CtH-Tn-OTv">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="setTimerTo15Minutes:" target="gEe-Vl-JZj" id="CFL-Xc-IAT"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="30 minutes" id="l3h-kG-uCL">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="setTimerTo30Minutes:" target="gEe-Vl-JZj" id="cmN-An-Z03"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="45 minutes" id="94a-fj-0x9">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="setTimerTo45Minutes:" target="gEe-Vl-JZj" id="h9k-2c-LgF"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="60 minutes" state="on" id="qwU-zI-q1a">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="setTimerTo60Minutes:" target="gEe-Vl-JZj" id="0cW-qi-ccN"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="90 minutes" id="lPb-Lz-9e3">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="setTimerTo90Minutes:" target="gEe-Vl-JZj" id="BqD-bX-Xy7"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="120 minutes" id="rlZ-64-SHk">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="setTimerTo120Minutes:" target="gEe-Vl-JZj" id="erm-eY-OUJ"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem title="180 minutes" id="BPc-Aa-Omo">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <action selector="setTimerTo180Minutes:" target="gEe-Vl-JZj" id="5CI-Se-uZx"/>
-                                        </connections>
-                                    </menuItem>
-                                    <menuItem isSeparatorItem="YES" id="97f-7d-FDQ"/>
-                                    <menuItem title="Custom Interval View" id="eHk-Ko-JLE">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                        <connections>
-                                            <outlet property="view" destination="Q3w-LZ-ipl" id="fek-ba-OLY"/>
-                                        </connections>
-                                    </menuItem>
-                                </items>
-                            </menu>
+                            <connections>
+                                <outlet property="view" destination="Q3w-LZ-ipl" id="fek-ba-OLY"/>
+                            </connections>
                         </menuItem>
-                        <menuItem title="Start Countdown" id="KXm-JQ-Adn" userLabel="Toggle Countdown">
+                        <menuItem title="Start" id="KXm-JQ-Adn" userLabel="Toggle Countdown">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="toggleTimer:" target="gEe-Vl-JZj" id="oOV-Wc-lB1"/>
@@ -129,15 +80,11 @@
                     </connections>
                 </menu>
                 <customView identifier="TimerView" id="WxJ-5I-PgS" userLabel="Timer">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="55"/>
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <progressIndicator identifier="timerprogress" wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-Rs-Itp">
-                            <rect key="frame" x="31" y="2" width="100" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </progressIndicator>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TT-Uo-wkQ" userLabel="Timer">
-                            <rect key="frame" x="18" y="22" width="127" height="24"/>
+                            <rect key="frame" x="18" y="20" width="127" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Stopped" id="1pi-kS-v5V">
                                 <font key="font" metaFont="system" size="20"/>
@@ -145,36 +92,36 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <progressIndicator identifier="timerprogress" wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-Rs-Itp">
+                            <rect key="frame" x="32" y="0.0" width="100" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </progressIndicator>
                     </subviews>
                 </customView>
-                <customView id="Q3w-LZ-ipl" userLabel="Custom Interval">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="35"/>
+                <customView id="Q3w-LZ-ipl" userLabel="Interval">
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g98-jR-KaH">
-                            <rect key="frame" x="20" y="8" width="56" height="22"/>
+                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-18-3wR" userLabel="Interval Stepper">
+                            <rect key="frame" x="137" y="-1" width="19" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" refusesFirstResponder="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="1" usesSingleLineMode="YES" bezelStyle="round" id="xLc-Qa-MXq">
-                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="vRd-hA-T59"/>
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <connections>
-                                    <action selector="updateCustomTimerMinutes:" target="gEe-Vl-JZj" id="NUN-jJ-6ce"/>
-                                </connections>
-                            </textFieldCell>
-                        </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fn-AC-Gy0">
-                            <rect key="frame" x="79" y="12" width="66" height="17"/>
+                            <stepperCell key="cell" lineBreakMode="truncatingHead" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="600" doubleValue="5" id="ghn-kl-ysh"/>
+                            <connections>
+                                <action selector="setTimeInterval:" target="gEe-Vl-JZj" id="59r-fF-ErF"/>
+                            </connections>
+                        </stepper>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHh-df-Se7" userLabel="Interval Label">
+                            <rect key="frame" x="19" y="5" width="106" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="minute(s)" id="0F9-tv-3Xd">
-                                <font key="font" metaFont="system"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="60 minutes" id="JF0-mg-wCq">
+                                <font key="font" metaFont="system" size="14"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
                     </subviews>
                 </customView>
+                <userDefaultsController representsSharedInstance="YES" id="oey-xm-2ni"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>

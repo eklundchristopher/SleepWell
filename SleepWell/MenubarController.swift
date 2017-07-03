@@ -11,10 +11,11 @@ import Foundation
 
 class MenubarController: NSObject {
     @IBOutlet weak var menubar: NSMenu!
-    @IBOutlet weak var intervalMenu: NSMenu!
     @IBOutlet weak var timerLabel: NSTextField!
     @IBOutlet weak var progressbar: NSProgressIndicator!
     @IBOutlet weak var toggleButton: NSMenuItem!
+    @IBOutlet weak var intervalLabel: NSTextField!
+    @IBOutlet weak var intervalStepper: NSStepper!
     
     var interval = 0
     var enabled = false
@@ -33,81 +34,37 @@ class MenubarController: NSObject {
         }
     }
     
-    @IBAction func setTimerTo15Minutes(_ sender: NSMenuItem) {
-        setTimerTo(minutes: 15, current: sender)
-    }
-    
-    @IBAction func setTimerTo30Minutes(_ sender: NSMenuItem) {
-        setTimerTo(minutes: 30, current: sender)
-    }
-    
-    @IBAction func setTimerTo45Minutes(_ sender: NSMenuItem) {
-        setTimerTo(minutes: 45, current: sender)
-    }
-    
-    @IBAction func setTimerTo60Minutes(_ sender: NSMenuItem) {
-        setTimerTo(minutes: 60, current: sender)
-    }
-    
-    @IBAction func setTimerTo90Minutes(_ sender: NSMenuItem) {
-        setTimerTo(minutes: 90, current: sender)
-    }
-    
-    @IBAction func setTimerTo120Minutes(_ sender: NSMenuItem) {
-        setTimerTo(minutes: 120, current: sender)
-    }
-    
-    @IBAction func setTimerTo180Minutes(_ sender: NSMenuItem) {
-        setTimerTo(minutes: 180, current: sender)
-    }
-    
-    @IBAction func updateCustomTimerMinutes(_ sender: NSTextFieldCell) {
-        setTimerTo(minutes: sender.integerValue)
+    @IBAction func setTimeInterval(_ sender: NSStepper) {
+        setTime(minutes: sender.integerValue)
     }
     
     override func awakeFromNib() {
         let icon = NSImage(named: "AppIcon")
         icon?.isTemplate = true
         icon?.size = NSSize.init(width: 18, height: 18)
+        
         menubarIcon.image = icon
         menubarIcon.menu = menubar
-        
-        if let screen = NSScreen.main() {
-            print(screen.backingScaleFactor)
-        }
         
         setTime(minutes: 60)
     }
     
-    func setTimerTo(minutes : Int, current : NSMenuItem! = nil) {
-        for menuItem in intervalMenu.items {
-            if menuItem.state == NSOnState {
-                menuItem.state = NSOffState
-                break
-            }
-        }
-        
-        if (current != nil) {
-            current.state = NSOnState
-        }
-        
-        setTime(minutes: minutes)
-        print("Setting timer to " + String(minutes))
-    }
-    
     func getTime() -> Int {
-        return interval
+        return interval / 60
     }
     
     
     func setTime(minutes : Int) {
         interval = minutes * 60
         timeRemaining = interval
+        
+        intervalStepper.stringValue = String(getTime())
+        intervalLabel.stringValue = String(getTime()) + " minutes"
     }
     
     func startTimer() {
         enabled = true
-        toggleButton.title = "Stop Countdown"
+        toggleButton.title = "Stop"
         
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerRunning), userInfo: nil, repeats: true)
@@ -117,7 +74,7 @@ class MenubarController: NSObject {
     func stopTimer() {
         timer.invalidate()
         enabled = false
-        toggleButton.title = "Start Countdown"
+        toggleButton.title = "Start"
         timerLabel.stringValue = ""
     }
     
