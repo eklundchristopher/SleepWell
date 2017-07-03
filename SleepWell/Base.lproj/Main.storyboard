@@ -80,11 +80,11 @@
                     </connections>
                 </menu>
                 <customView identifier="TimerView" id="WxJ-5I-PgS" userLabel="Timer">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="53"/>
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TT-Uo-wkQ" userLabel="Timer">
-                            <rect key="frame" x="18" y="20" width="127" height="24"/>
+                            <rect key="frame" x="18" y="25" width="127" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Stopped" id="1pi-kS-v5V">
                                 <font key="font" metaFont="system" size="20"/>
@@ -93,7 +93,7 @@
                             </textFieldCell>
                         </textField>
                         <progressIndicator identifier="timerprogress" wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-Rs-Itp">
-                            <rect key="frame" x="20" y="0.0" width="123" height="20"/>
+                            <rect key="frame" x="20" y="1" width="123" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </progressIndicator>
                     </subviews>
