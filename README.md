@@ -35,10 +35,12 @@ Restarts the timer at the specified time interval.
 ### Time Interval
 Set the time interval for the timer. It defaults to 60 minutes and increases or decreases by 5 minutes as you click on the stepper control. The allowed range is between 5 to 600 minutes.
 
-> You may change the default minutes by ticking the `Save Interval` preference, changing the time interval stepper to your desired default value, and then unticking the `Save Interval` preference again.
+> If you adjust the time interval value while a timer is going on, it will immediately restart the timer at your new time interval.
 
 ### Preference: Save Interval
 With this option enabled, every time you change the time interval, it will save the value permanently. So the next time you open the application, the time interval will be as you last had it.
+
+> You may change the default Time Interval by ticking the `Save Interval` preference, changing the time interval stepper to your desired default value, and then unticking the `Save Interval` preference again.
 
 ### Preference: Sleep
 If you'd rather have your computer go to sleep as opposed to shutting down, you should enable this option.
