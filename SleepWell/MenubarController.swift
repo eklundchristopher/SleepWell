@@ -67,7 +67,8 @@ class MenubarController: NSObject {
         toggleButton.title = "Stop"
         
         DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerRunning), userInfo: nil, repeats: true)
+            self.timer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.timerRunning), userInfo: nil, repeats: true)
+            RunLoop.current.add(self.timer, forMode: RunLoopMode.commonModes)
         }
     }
     
@@ -76,10 +77,11 @@ class MenubarController: NSObject {
         enabled = false
         toggleButton.title = "Start"
         timerLabel.stringValue = ""
+        progressbar.doubleValue = Double(0)
     }
     
     func shutdownComputer() {
-        print("Shutting down computer...")
+        NSAppleScript(source: "tell application \"Finder\"\nshut down\nend tell")!.executeAndReturnError(nil)
     }
     
     func timerRunning() {
@@ -97,5 +99,4 @@ class MenubarController: NSObject {
             stopTimer()
             shutdownComputer()
         }
-    }
-}
+    }}
