@@ -33,7 +33,7 @@ Stops the timer.
 Restarts the timer at the specified time interval.
 
 ### Time Interval
-Set the time interval for the timer. It defaults to 60 minutes and increases or decreases by 5 minutes as you click on the stepper control. The allowed range is between 5 to 600 minutes.
+Set the time interval for the timer. It defaults to 120 minutes and increases or decreases by 5 minutes as you click on the stepper control. The allowed range is between 5 to 600 minutes.
 
 > If you adjust the time interval value while a timer is going on, it will immediately restart the timer at your new time interval.
 
