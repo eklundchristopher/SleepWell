@@ -14,6 +14,7 @@ Enter, `SleepWell.app`. It pretty much does what `GoodNight.app` did, but with m
 
 ## Prerequisites
 + macOS 10.12+
++ **[SleepWell.app.zip](https://github.com/eklundchristopher/SleepWell/releases)**
 
 &nbsp;
 
