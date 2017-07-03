@@ -93,7 +93,7 @@
                             </textFieldCell>
                         </textField>
                         <progressIndicator identifier="timerprogress" wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-Rs-Itp">
-                            <rect key="frame" x="32" y="0.0" width="100" height="20"/>
+                            <rect key="frame" x="20" y="0.0" width="123" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </progressIndicator>
                     </subviews>
@@ -102,14 +102,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="163" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-18-3wR" userLabel="Interval Stepper">
-                            <rect key="frame" x="137" y="-1" width="19" height="27"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <stepperCell key="cell" lineBreakMode="truncatingHead" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="600" doubleValue="5" id="ghn-kl-ysh"/>
-                            <connections>
-                                <action selector="setTimeInterval:" target="gEe-Vl-JZj" id="59r-fF-ErF"/>
-                            </connections>
-                        </stepper>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHh-df-Se7" userLabel="Interval Label">
                             <rect key="frame" x="19" y="5" width="106" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -119,6 +111,14 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-18-3wR" userLabel="Interval Stepper">
+                            <rect key="frame" x="126" y="-2" width="19" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <stepperCell key="cell" lineBreakMode="truncatingHead" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="600" doubleValue="5" id="ghn-kl-ysh"/>
+                            <connections>
+                                <action selector="setTimeInterval:" target="gEe-Vl-JZj" id="59r-fF-ErF"/>
+                            </connections>
+                        </stepper>
                     </subviews>
                 </customView>
                 <userDefaultsController representsSharedInstance="YES" id="oey-xm-2ni"/>

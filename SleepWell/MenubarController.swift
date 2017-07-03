@@ -91,7 +91,7 @@ class MenubarController: NSObject {
         let minutesLeft = String(format: "%02d", Int(timeRemaining) / 60 % 60)
         let secondsLeft = String(format: "%02d", Int(timeRemaining) % 60)
         
-        timerLabel.stringValue = "\(hoursLeft):\(minutesLeft):\(secondsLeft)"
+        timerLabel.stringValue = "\(hoursLeft) : \(minutesLeft) : \(secondsLeft)"
         
         if (timeRemaining <= 0) {
             stopTimer()
