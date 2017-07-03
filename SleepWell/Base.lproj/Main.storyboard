@@ -186,6 +186,10 @@
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="toggleSaveInterval:" target="gEe-Vl-JZj" id="oZ0-Vz-Jqp"/>
+                                <binding destination="gEe-Vl-JZj" name="value" keyPath="isSavingInterval" id="k6V-1s-66d"/>
+                            </connections>
                         </button>
                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-tB-e0M">
                             <rect key="frame" x="18" y="2" width="127" height="18"/>
@@ -194,6 +198,10 @@
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="togglePrefersSleeping:" target="gEe-Vl-JZj" id="gzI-Fl-wLZ"/>
+                                <binding destination="gEe-Vl-JZj" name="value" keyPath="prefersSleeping" id="cQU-es-MRU"/>
+                            </connections>
                         </button>
                     </subviews>
                 </customView>
