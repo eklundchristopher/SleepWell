@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D21ED2D61F0985B8007DF214 /* MenubarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21ED2D51F0985B8007DF214 /* MenubarController.swift */; };
 		D28E23211F0980C8007410A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E23201F0980C8007410A0 /* AppDelegate.swift */; };
-		D28E23231F0980C8007410A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E23221F0980C8007410A0 /* ViewController.swift */; };
 		D28E23251F0980C8007410A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28E23241F0980C8007410A0 /* Assets.xcassets */; };
 		D28E23281F0980C8007410A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E23261F0980C8007410A0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D21ED2D51F0985B8007DF214 /* MenubarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarController.swift; sourceTree = "<group>"; };
 		D28E231D1F0980C8007410A0 /* SleepWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28E23201F0980C8007410A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D28E23221F0980C8007410A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D28E23241F0980C8007410A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D28E23271F0980C8007410A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D28E23291F0980C8007410A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,9 +53,9 @@
 			isa = PBXGroup;
 			children = (
 				D28E23201F0980C8007410A0 /* AppDelegate.swift */,
-				D28E23221F0980C8007410A0 /* ViewController.swift */,
 				D28E23241F0980C8007410A0 /* Assets.xcassets */,
 				D28E23261F0980C8007410A0 /* Main.storyboard */,
+				D21ED2D51F0985B8007DF214 /* MenubarController.swift */,
 				D28E23291F0980C8007410A0 /* Info.plist */,
 			);
 			path = SleepWell;
@@ -132,7 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D28E23231F0980C8007410A0 /* ViewController.swift in Sources */,
+				D21ED2D61F0985B8007DF214 /* MenubarController.swift in Sources */,
 				D28E23211F0980C8007410A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +288,7 @@
 				D28E232E1F0980C8007410A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
