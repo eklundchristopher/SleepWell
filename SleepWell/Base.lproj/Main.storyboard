@@ -42,32 +42,41 @@
                         <outlet property="intervalStepper" destination="mSB-18-3wR" id="lRm-rs-dmX"/>
                         <outlet property="menubar" destination="asO-AN-rWL" id="5DE-bY-1y2"/>
                         <outlet property="progressbar" destination="oWT-Rs-Itp" id="uV3-Ww-TdQ"/>
+                        <outlet property="restartButton" destination="cHv-YY-fF8" id="qEn-Eu-dT0"/>
+                        <outlet property="startButton" destination="2Bf-ib-nyo" id="nXz-Eg-1Up"/>
+                        <outlet property="stopButton" destination="ux3-Yg-BF3" id="xsw-3h-RHR"/>
                         <outlet property="timerLabel" destination="3TT-Uo-wkQ" id="c1Q-zo-2ig"/>
-                        <outlet property="toggleButton" destination="KXm-JQ-Adn" id="1jO-aT-2Nk"/>
                     </connections>
                 </customObject>
                 <menu id="asO-AN-rWL" userLabel="Menubar">
                     <items>
-                        <menuItem title="Timer View" id="a4c-CE-52D" userLabel="Timer View">
+                        <menuItem title="Timer" id="a4c-CE-52D" userLabel="Timer View">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <outlet property="view" destination="WxJ-5I-PgS" id="D5I-ug-NpP"/>
                             </connections>
                         </menuItem>
-                        <menuItem isSeparatorItem="YES" id="Lvu-RV-Xt9"/>
-                        <menuItem title="Interval" id="eHk-Ko-JLE">
+                        <menuItem title="Actions" id="eHk-Ko-JLE">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <outlet property="view" destination="Q3w-LZ-ipl" id="fek-ba-OLY"/>
+                                <outlet property="view" destination="74f-2z-yDv" id="aaK-9k-YOw"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Start" id="KXm-JQ-Adn" userLabel="Toggle Countdown">
+                        <menuItem isSeparatorItem="YES" id="ePQ-k2-CvO"/>
+                        <menuItem title="Interval" id="dkx-vy-gcs">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="toggleTimer:" target="gEe-Vl-JZj" id="oOV-Wc-lB1"/>
+                                <outlet property="view" destination="Q3w-LZ-ipl" id="z9R-rr-a1k"/>
                             </connections>
                         </menuItem>
-                        <menuItem isSeparatorItem="YES" id="fFf-9U-cx3"/>
+                        <menuItem isSeparatorItem="YES" id="6vs-2P-6Lh"/>
+                        <menuItem title="Preferences" id="4YN-Km-ohc">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <outlet property="view" destination="C4I-d5-Tb4" id="IiX-os-gW7"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="dTa-WJ-cFP"/>
                         <menuItem title="Quit" id="clu-G1-dhh">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
@@ -80,11 +89,11 @@
                     </connections>
                 </menu>
                 <customView identifier="TimerView" id="WxJ-5I-PgS" userLabel="Timer">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="58"/>
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="65"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TT-Uo-wkQ" userLabel="Timer">
-                            <rect key="frame" x="18" y="25" width="127" height="24"/>
+                            <rect key="frame" x="18" y="32" width="127" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Stopped" id="1pi-kS-v5V">
                                 <font key="font" metaFont="system" size="20"/>
@@ -93,13 +102,58 @@
                             </textFieldCell>
                         </textField>
                         <progressIndicator identifier="timerprogress" wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-Rs-Itp">
-                            <rect key="frame" x="20" y="1" width="123" height="20"/>
+                            <rect key="frame" x="20" y="8" width="123" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </progressIndicator>
                     </subviews>
                 </customView>
+                <customView id="74f-2z-yDv" userLabel="Actions">
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Bf-ib-nyo">
+                            <rect key="frame" x="20" y="10" width="16" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PlayButton" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="yTx-58-PSo">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <connections>
+                                    <binding destination="gEe-Vl-JZj" name="enabled" keyPath="disabled" id="tDg-UC-2f4"/>
+                                </connections>
+                            </buttonCell>
+                            <connections>
+                                <action selector="toggleTimer:" target="gEe-Vl-JZj" id="j39-GT-nxX"/>
+                                <binding destination="gEe-Vl-JZj" name="enabled" keyPath="disabled" id="OEH-V7-NrJ"/>
+                            </connections>
+                        </button>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ux3-Yg-BF3">
+                            <rect key="frame" x="73" y="10" width="16" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="StopButton" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="RIk-xU-15c">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="toggleTimer:" target="gEe-Vl-JZj" id="k79-l8-zpy"/>
+                                <binding destination="gEe-Vl-JZj" name="enabled" keyPath="enabled" id="vId-wU-ElG"/>
+                            </connections>
+                        </button>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHv-YY-fF8">
+                            <rect key="frame" x="127" y="10" width="16" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="RestartButton" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="tOC-cZ-jP8">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="resetTimer:" target="gEe-Vl-JZj" id="l01-5C-pO2"/>
+                                <binding destination="gEe-Vl-JZj" name="enabled" keyPath="enabled" id="2i9-R3-SA0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </customView>
                 <customView id="Q3w-LZ-ipl" userLabel="Interval">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="24"/>
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHh-df-Se7" userLabel="Interval Label">
@@ -112,7 +166,7 @@
                             </textFieldCell>
                         </textField>
                         <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-18-3wR" userLabel="Interval Stepper">
-                            <rect key="frame" x="126" y="-2" width="19" height="27"/>
+                            <rect key="frame" x="127" y="-1" width="19" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <stepperCell key="cell" lineBreakMode="truncatingHead" continuous="YES" alignment="left" increment="5" minValue="5" maxValue="600" doubleValue="5" id="ghn-kl-ysh"/>
                             <connections>
@@ -121,9 +175,35 @@
                         </stepper>
                     </subviews>
                 </customView>
-                <userDefaultsController representsSharedInstance="YES" id="oey-xm-2ni"/>
+                <customView id="C4I-d5-Tb4" userLabel="Preferences">
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7w-0g-DDt">
+                            <rect key="frame" x="18" y="22" width="127" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="check" title="Save Interval" bezelStyle="regularSquare" imagePosition="right" inset="2" id="YJu-D2-JQz">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-tB-e0M">
+                            <rect key="frame" x="18" y="2" width="127" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="check" title="Sleep" bezelStyle="regularSquare" imagePosition="right" inset="2" id="dN8-8i-cOD">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                    </subviews>
+                </customView>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PlayButton" width="32" height="32"/>
+        <image name="RestartButton" width="32" height="32"/>
+        <image name="StopButton" width="32" height="32"/>
+    </resources>
 </document>

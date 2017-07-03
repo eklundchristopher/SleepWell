@@ -13,25 +13,33 @@ class MenubarController: NSObject {
     @IBOutlet weak var menubar: NSMenu!
     @IBOutlet weak var timerLabel: NSTextField!
     @IBOutlet weak var progressbar: NSProgressIndicator!
-    @IBOutlet weak var toggleButton: NSMenuItem!
     @IBOutlet weak var intervalLabel: NSTextField!
     @IBOutlet weak var intervalStepper: NSStepper!
+    @IBOutlet weak var startButton: NSButton!
+    @IBOutlet weak var stopButton: NSButton!
+    @IBOutlet weak var restartButton: NSButton!
     
     var interval = 0
-    var enabled = false
+    dynamic var enabled: NSNumber? = false
+    dynamic var disabled: NSNumber? = true
     var timeRemaining = 0
     var timer = Timer()
     let menubarIcon = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     
-    @IBAction func toggleTimer(_ sender: NSMenuItem) {
+    @IBAction func toggleTimer(_ sender: NSButton) {
         progressbar.doubleValue = Double(0)
         timeRemaining = interval
         
-        if enabled == false {
+        if isEnabled() == false {
             startTimer()
         } else {
             stopTimer()
         }
+    }
+    
+    @IBAction func resetTimer(_ sender: NSButton) {
+        progressbar.doubleValue = Double(0)
+        timeRemaining = interval
     }
     
     @IBAction func setTimeInterval(_ sender: NSStepper) {
@@ -47,12 +55,32 @@ class MenubarController: NSObject {
         menubarIcon.menu = menubar
         
         setTime(minutes: 60)
+        setControlButtonStates()
+    }
+    
+    func isEnabled() -> Bool {
+        return (enabled?.boolValue)!
+    }
+    
+    func enable() {
+        enabled = NSNumber?.init(true)
+        disabled = NSNumber?.init(false)
+    }
+    
+    func disable() {
+        enabled = NSNumber?.init(false)
+        disabled = NSNumber?.init(true)
     }
     
     func getTime() -> Int {
         return interval / 60
     }
     
+    func setControlButtonStates() {
+        startButton.image?.isTemplate = true
+        stopButton.image?.isTemplate = true
+        restartButton.image?.isTemplate = true
+    }
     
     func setTime(minutes : Int) {
         interval = minutes * 60
@@ -63,8 +91,7 @@ class MenubarController: NSObject {
     }
     
     func startTimer() {
-        enabled = true
-        toggleButton.title = "Stop"
+        enable()
         
         DispatchQueue.main.async {
             self.timer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.timerRunning), userInfo: nil, repeats: true)
@@ -73,9 +100,9 @@ class MenubarController: NSObject {
     }
     
     func stopTimer() {
+        disable()
+        
         timer.invalidate()
-        enabled = false
-        toggleButton.title = "Start"
         timerLabel.stringValue = ""
         progressbar.doubleValue = Double(0)
     }
