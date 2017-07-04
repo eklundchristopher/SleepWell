@@ -27,6 +27,7 @@ class MenubarController: NSObject {
     var timeRemaining = 0
     var timer = Timer()
     let menubarIcon = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let bundleID = Bundle.main.bundleIdentifier!
     
     @IBAction func toggleTimer(_ sender: NSButton) {
         progressbar.doubleValue = Double(0)
@@ -50,12 +51,12 @@ class MenubarController: NSObject {
     
     @IBAction func toggleSaveInterval(_ sender: NSButton) {
         isSavingInterval = sender.state as NSNumber
-        writePlist(namePlist: "Preferences", key: "Save Interval", data: isSavingInterval!)
+        writePlist(namePlist: bundleID, key: "Save Interval", data: isSavingInterval!)
     }
     
     @IBAction func togglePrefersSleeping(_ sender: NSButton) {
         prefersSleeping = sender.state as NSNumber
-        writePlist(namePlist: "Preferences", key: "Sleep", data: prefersSleeping!)
+        writePlist(namePlist: bundleID, key: "Sleep", data: prefersSleeping!)
     }
     
     override func awakeFromNib() {
@@ -66,11 +67,11 @@ class MenubarController: NSObject {
         menubarIcon.image = icon
         menubarIcon.menu = menubar
         
-        isSavingInterval = readPlist(namePlist: "Preferences", key: "Save Interval") as? NSNumber
-        prefersSleeping = readPlist(namePlist: "Preferences", key: "Sleep") as? NSNumber
+        isSavingInterval = readPlist(namePlist: bundleID, key: "Save Interval") as? NSNumber
+        prefersSleeping = readPlist(namePlist: bundleID, key: "Sleep") as? NSNumber
         
         var minutes = 60
-        let savedMinutes = readPlist(namePlist: "Preferences", key: "Interval") as! Int
+        let savedMinutes = readPlist(namePlist: bundleID, key: "Interval") as! Int
         if savedMinutes > 0 {
             minutes = savedMinutes
         }
@@ -111,7 +112,7 @@ class MenubarController: NSObject {
         intervalLabel.stringValue = String(getTime()) + " minutes"
         
         if isSavingInterval?.boolValue == true {
-            writePlist(namePlist: "Preferences", key: "Interval", data: (interval / 60) as NSNumber)
+            writePlist(namePlist: bundleID, key: "Interval", data: (interval / 60) as NSNumber)
         }
     }
     
@@ -157,8 +158,9 @@ class MenubarController: NSObject {
         }
     }
     
+    // https://stackoverflow.com/a/31653125
     func readPlist(namePlist: String, key: String) -> AnyObject{
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths.object(at: 0) as! NSString
         let path = documentsDirectory.appendingPathComponent(namePlist+".plist")
         
@@ -182,8 +184,9 @@ class MenubarController: NSObject {
         return output as AnyObject
     }
     
+    // https://stackoverflow.com/a/31653125
     func writePlist(namePlist: String, key: String, data: AnyObject){
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths.object(at: 0) as! NSString
         let path = documentsDirectory.appendingPathComponent(namePlist+".plist")
         

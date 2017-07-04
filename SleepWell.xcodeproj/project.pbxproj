@@ -11,7 +11,7 @@
 		D28E23211F0980C8007410A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E23201F0980C8007410A0 /* AppDelegate.swift */; };
 		D28E23251F0980C8007410A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28E23241F0980C8007410A0 /* Assets.xcassets */; };
 		D28E23281F0980C8007410A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E23261F0980C8007410A0 /* Main.storyboard */; };
-		D2E238951F0A8F1400F2D852 /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2E238941F0A8F1400F2D852 /* Preferences.plist */; };
+		D2E238951F0A8F1400F2D852 /* com.eklundchristopher.SleepWell.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2E238941F0A8F1400F2D852 /* com.eklundchristopher.SleepWell.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +21,7 @@
 		D28E23241F0980C8007410A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D28E23271F0980C8007410A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D28E23291F0980C8007410A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2E238941F0A8F1400F2D852 /* Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
+		D2E238941F0A8F1400F2D852 /* com.eklundchristopher.SleepWell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.eklundchristopher.SleepWell.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 				D28E23201F0980C8007410A0 /* AppDelegate.swift */,
 				D28E23241F0980C8007410A0 /* Assets.xcassets */,
 				D28E23261F0980C8007410A0 /* Main.storyboard */,
-				D2E238941F0A8F1400F2D852 /* Preferences.plist */,
+				D2E238941F0A8F1400F2D852 /* com.eklundchristopher.SleepWell.plist */,
 				D21ED2D51F0985B8007DF214 /* MenubarController.swift */,
 				D28E23291F0980C8007410A0 /* Info.plist */,
 			);
@@ -126,7 +126,7 @@
 			files = (
 				D28E23251F0980C8007410A0 /* Assets.xcassets in Resources */,
 				D28E23281F0980C8007410A0 /* Main.storyboard in Resources */,
-				D2E238951F0A8F1400F2D852 /* Preferences.plist in Resources */,
+				D2E238951F0A8F1400F2D852 /* com.eklundchristopher.SleepWell.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
